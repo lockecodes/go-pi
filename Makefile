@@ -14,7 +14,11 @@ build: build-release build-test # build all targets
 
 .PHONY: build-release
 build-release: ## build release target
-	$(DOCKER) build --target release -t $(CONTAINER_NAME):$(VERSION) .
+	$(DOCKER) build \
+		--target release \
+		-t $(CONTAINER_NAME):$(VERSION) \
+		-t $(CONTAINER_NAME):latest \
+		.
 
 .PHONY: build-test
 build-test: build-release ## build test target
