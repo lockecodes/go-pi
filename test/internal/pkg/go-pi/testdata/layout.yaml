@@ -1,0 +1,158 @@
+directories:
+  api:
+    description: |
+      OpenAPI/Swagger specs, JSON schema files, protocol definition files.
+    flags:
+      - web
+      - kitchen
+  assets:
+    description: |
+      Other assets to go along with your repository (images, logos, etc).
+    flags:
+      - required
+  build:
+    description: |
+      Packaging and Continuous Integration.
+    subDirectories:
+      ci:
+        description: ci build files
+      package:
+        description: package build files
+    flags:
+      - required
+  cmd:
+    description: |
+      Main applications for this project.
+    subDirectories:
+      _your_app_:
+        description: Directory contains the commands for the _your_app_ executable
+        __files__:
+          main.go: |
+            package main
+            
+            func main() {
+            }
+  configs:
+    description: |
+      Configuration file templates or default configs.
+    flags:
+      - required
+  deployments:
+    description: |
+      IaaS, PaaS, system and container orchestration deployment configurations and templates (docker-compose,
+      kubernetes/helm, mesos, terraform, bosh).
+    flags:
+      - web
+      - kitchen
+  docs:
+    description: |
+      Design and user documents (in addition to your godoc generated documentation).
+    flags:
+      - required
+  examples:
+    description: |
+      Examples for your applications and/or public libraries.
+    flags:
+      - required
+  githooks:
+    description: |
+      Git hooks.
+    flags:
+      - hooks
+      - kitchen
+  init:
+    description: |
+      System init (systemd, upstart, sysv) and process manager/supervisor (runit, supervisord) configs.
+    flags:
+      - init
+      - kitchen
+  internal:
+    description: |
+      Private application and library code.
+    app:
+      description: Internal application code. This would have a separate directory for each application (binary)
+      _your_app_:
+        description: The internal application code for the _your_app_ application
+    pkg:
+      description: The internal shared code. This would be imports in your app directories
+      _your_private_lib_:
+        description: A private internal library used in the internal applications
+    flags:
+      - required
+  pkg:
+    description: |
+      Library code that's ok to use by external applications (e.g., `/pkg/mypubliclib`).
+    _your_public_lib_:
+      description: This will be an externally importable library
+    flags:
+      - required
+  scripts:
+    description: |
+      Scripts to perform various build, install, analysis, etc operations.
+    flags:
+      - required
+  test:
+    description: |
+      Additional external test apps and test data.
+    flags:
+      - required
+  third_party:
+    description: |
+      External helper tools, forked code and other 3rd party utilities (e.g., Swagger UI).
+    flags:
+      - kitchen
+      - third
+  tools:
+    description: |
+      Supporting tools for this project. Note that these tools can import code from the `/pkg` and `/internal` directories.
+    flags:
+      - kitchen
+      - tools
+  vendor:
+    description: |
+      Application dependencies (managed manually or by your favorite dependency management tool or the built-in
+      [`modules`](https://go.dev/wiki/Modules) feature).
+    flags:
+      - kitchen
+      - vendor
+  web:
+    description: |
+      Web application specific components: static web assets, server side templates and SPAs.
+    app:
+      description: web application code
+    static:
+      description: web static code
+    templates:
+      description: web templates
+    flags:
+      - web
+      - kitchen
+  website:
+    description: |
+      This is the place to put your project's website data if you are not using GitHub pages.
+    flags:
+      - kitchen
+      - project
+__files__:
+  go.mod: |
+    module github.com/YOUR-USER-OR-ORG-NAME/YOUR-REPO-NAME
+
+    go 1.23
+
+    require (
+      github.com/cpuguy83/go-md2man/v2 v2.0.5 // indirect
+      github.com/knadh/koanf v1.5.0 // indirect
+      github.com/mitchellh/copystructure v1.2.0 // indirect
+      github.com/mitchellh/mapstructure v1.5.0 // indirect
+      github.com/mitchellh/reflectwalk v1.0.2 // indirect
+      github.com/russross/blackfriday/v2 v2.1.0 // indirect
+      github.com/urfave/cli/v2 v2.27.5 // indirect
+      github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
+      gopkg.in/yaml.v3 v3.0.1 // indirect
+    )
+  LICENSE.md: |
+    license stuff here
+  Makefile: |
+    # note: call scripts from /scripts
+  README.md: |
+    # Standard Go Project Layout

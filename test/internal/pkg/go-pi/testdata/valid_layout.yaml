@@ -1,0 +1,12 @@
+directories:
+  testdir1:
+    description: "This is test directory 1."
+    subDirectories:
+      subdir1:
+        description: "This is a subdirectory of testdir1."
+    __files__:
+      testfile1.txt: "This is file 1 in testdir1."
+  testdir2:
+    description: "This is test directory 2."
+__files__:
+  topfile1.txt: "This is a top-level file."
